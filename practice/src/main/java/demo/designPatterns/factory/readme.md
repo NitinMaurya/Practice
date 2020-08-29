@@ -10,8 +10,7 @@ Notifications to be sent to a customer.
 Let's say we have to send different types of notifications to customer based on different kafka events
 
 1. Booking Event 
-2. Contact center Event
-3. Task Event
+2. Task Event
 
 What we can do is, create a multiple classes of different notifications to be sent to the customer like 
 - your reservation about to start.
