@@ -1,13 +1,13 @@
 package demo.ds.fenwickTree;
 
+import java.util.Arrays;
+
 public class FenwickTreeImpl implements FenwickTree {
     private int[] tree;
 
     public FenwickTreeImpl(int[] array){
         tree = new int[array.length + 1];
-        for(int i = 0; i < array.length + 1; i++){
-            tree[i] = 0;
-        }
+        Arrays.fill(tree, 0);
         for(int i = 0; i < array.length; i++){
             updateTree(array.length, i, array[i]);
         }
