@@ -1,0 +1,21 @@
+spring:
+  profiles:
+    active: dev
+
+  application:
+    name: Java Practice
+
+  datasource:
+    url: jdbc:mysql://${MYSQL_HOST:localhost}:3306/practice_db
+    driver-class-name: com.mysql.jdbc.Driver
+    username: ${MYSQL_USER:root}
+    password: ${MYSQL_PASSWORD:root}
+  jpa:
+    show-sql: true
+    generate-ddl: true
+    hibernate:
+      ddl-auto: update
+    properties:
+      hibernate:
+        dialect: org.hibernate.dialect.MySQL5InnoDBDialect
+    database-platform: org.hibernate.dialect.MySQL5InnoDBDialect
