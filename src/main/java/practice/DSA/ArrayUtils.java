@@ -1,5 +1,7 @@
 package practice.DSA;
 
+import java.util.HashMap;
+import java.util.Map;
 import java.util.Scanner;
 
 public class ArrayUtils {
@@ -20,6 +22,37 @@ public class ArrayUtils {
             System.out.print(array[i] +  " ");
         }
         System.out.println(" ");
+    }
+
+    public static int max(int[] array) {
+        int max = array[0];
+        for (int i = 1; i < array.length; i++) {
+            if (array[i] > max) {
+                max = array[i];
+            }
+        }
+        return max;
+    }
+
+    public static Map<Integer, Integer> countMap(int[] array) {
+        return countMap(array, new HashMap<>());
+    }
+
+    public static Map<Integer, Integer> countMap(int[] array, Map<Integer, Integer> map) {
+        for (int value : array) {
+            map.put(value, map.getOrDefault(value, 0) + 1);
+        }
+        return map;
+    }
+
+    public static int min(int[] array) {
+        int min = array[0];
+        for (int i = 1; i < array.length; i++) {
+            if (array[i] < min) {
+                min = array[i];
+            }
+        }
+        return min;
     }
 
     public static int[] input() {
