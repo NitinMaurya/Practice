@@ -16,10 +16,10 @@ public class BasicImpl extends DisjointSet {
 	}
 
 	@Override
-	public void union(int a, int b) {
+	public void union(int child, int root) {
 		for (int i = 0; i < arr.length; i++) {
-			if (arr[i] == arr[a]) {
-				arr[i] = arr[b];
+			if (arr[i] == arr[child]) {
+				arr[i] = arr[root];
 			}
 		}
 	}

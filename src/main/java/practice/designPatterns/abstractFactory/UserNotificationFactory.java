@@ -1,12 +1,10 @@
 package practice.designPatterns.abstractFactory;
 
-import lombok.extern.slf4j.Slf4j;
 
-@Slf4j
 public class UserNotificationFactory implements NotificationFactory {
 
 	public UserNotificationFactory() {
-		log.info("Sending User notification");
+		System.out.println("Sending User notification");
 	}
 
 	@Override
