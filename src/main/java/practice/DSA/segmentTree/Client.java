@@ -8,24 +8,28 @@ public class Client {
         int[] array = new int[]{1,2,3,4,5,6,7};
         ArrayUtils.print("Original Array:", array);
 
-        SegmentTree segmentTree = new SumSegmentTree(array);
+//        testSegmentTree(new SumSegmentTree(array), array);
+        testSegmentTree(new MaximumSegmentTree(array), array);
+    }
 
+    private static void testSegmentTree(SegmentTree segmentTree, int[] array) {
         System.out.println("Segment Tree: ");
         segmentTree.print();
         System.out.println("=================================");
 
-        int sum = segmentTree.query(array, 0, 2);
-        System.out.printf("SUM[%d,%d] = %d%n", 0, 2, sum);
+        int query = segmentTree.query(array, 0, 2);
+        System.out.printf("QUERY[%d,%d] = %d%n", 0, 2, query);
 
         System.out.println("=================================");
 
         segmentTree.update(array, 4, 8);
+        ArrayUtils.print("Updated Array:", array);
         System.out.println("Updated Segment Tree:");
         segmentTree.print();
 
         System.out.println("=================================");
 
-        sum = segmentTree.query(array, 0, 5);
-        System.out.printf("SUM[%d,%d] = %d%n", 0, 5, sum);
+        query = segmentTree.query(array, 0, 5);
+        System.out.printf("QUERY[%d,%d] = %d%n", 0, 5, query);
     }
 }
