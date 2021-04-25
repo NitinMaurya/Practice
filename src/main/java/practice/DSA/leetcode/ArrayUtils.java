@@ -113,4 +113,9 @@ public class ArrayUtils {
         }
         return true;
     }
+
+    public static void print(String s, int[] array) {
+        System.out.println(s);
+        print(array);
+    }
 }
