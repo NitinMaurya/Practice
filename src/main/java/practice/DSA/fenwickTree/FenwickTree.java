@@ -13,11 +13,11 @@ Contains three main methods:
 Total space complexity: [O(n)]
 */
 public interface FenwickTree{
-    int getSum(int index);
+    long query(int index);
 
-    int getSum(int startIndex, int endIndex);
+    long query(int startIndex, int endIndex);
 
-    void updateTree(int arraySize, int index, int value);
+    void update(int arraySize, int index, int value);
 
     void print();
 }
