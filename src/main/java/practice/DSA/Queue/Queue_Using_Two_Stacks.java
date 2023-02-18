@@ -1,13 +1,12 @@
+package practice.DSA.Queue;
+
 import java.io.*;
-import java.math.*;
-import java.security.*;
-import java.text.*;
-import java.util.*;
-import java.util.concurrent.*;
-import java.util.function.*;
-import java.util.regex.*;
-import java.util.stream.*;
-import javafx.util.Pair;
+import java.util.List;
+import java.util.Stack;
+import java.util.stream.Collectors;
+import java.util.stream.IntStream;
+import java.util.stream.Stream;
+
 import static java.util.stream.Collectors.joining;
 import static java.util.stream.Collectors.toList;
 
@@ -18,6 +17,18 @@ import static java.util.stream.Collectors.toList;
   
   Pair<Integer, Integer> = Pair of actual element and the next min/max element.
 */
+
+record Pair<F, S>(F key, S value) {
+
+    public F getKey() {
+        return key;
+    }
+
+    public S getValue() {
+        return value;
+    }
+
+}
 
 class MyQ {
     Stack<Pair<Integer, Integer>> inbox = new Stack<>();
@@ -95,7 +106,7 @@ class Result {
 
 }
 
-public class Solution {
+public class Queue_Using_Two_Stacks {
     public static void main(String[] args) throws IOException {
         BufferedReader bufferedReader = new BufferedReader(new InputStreamReader(System.in));
         BufferedWriter bufferedWriter = new BufferedWriter(new FileWriter(System.getenv("OUTPUT_PATH")));

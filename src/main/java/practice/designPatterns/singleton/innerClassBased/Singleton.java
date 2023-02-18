@@ -1,9 +1,8 @@
 package practice.designPatterns.singleton.innerClassBased;
 
-public class Singleton {
-	private Singleton(){
+public class Singleton implements Cloneable {
 
-	}
+	private Singleton(){}
 
 	private static class SingletonHelper{
 		private static final Singleton INSTANCE = new Singleton();
@@ -11,5 +10,10 @@ public class Singleton {
 
 	public static Singleton getInstance(){
 		return SingletonHelper.INSTANCE;
+	}
+
+	@Override
+	public Singleton clone() {
+		return getInstance();
 	}
 }
