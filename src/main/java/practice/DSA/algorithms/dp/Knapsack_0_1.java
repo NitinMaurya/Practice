@@ -1,4 +1,4 @@
-package practice.DSA.dynamic_programming.knapsack;
+package practice.DSA.algorithms.dp;
 
 import java.util.Arrays;
 import java.util.List;
