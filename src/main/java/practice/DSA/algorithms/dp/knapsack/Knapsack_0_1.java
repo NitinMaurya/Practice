@@ -1,4 +1,4 @@
-package practice.DSA.algorithms.dp;
+package practice.DSA.algorithms.dp.knapsack;
 
 import java.util.Arrays;
 import java.util.List;
