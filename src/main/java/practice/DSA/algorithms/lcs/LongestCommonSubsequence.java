@@ -34,7 +34,7 @@ public class LongestCommonSubsequence {
     }
   }
 
-  private static class DPSolution {
+  public static class DPSolution {
 
     public int solve(String X, String Y) {
       int m = X.length();
@@ -65,6 +65,48 @@ public class LongestCommonSubsequence {
     }
   }
 
+  static class PrintLongestCommonSubsequence {
+
+    public void print(String X, String Y) {
+      int m = X.length();
+      int n = Y.length();
+      int[][] t = new int[m+1][n+1];
+
+      for (int i = 0; i < m + 1; i++) {
+        for (int j = 0; j < n + 1; j++) {
+          if (i == 0 || j == 0) {
+            t[i][j] = 0;
+          }
+        }
+      }
+
+      for (int i = 1; i < m + 1; i++) {
+        for (int j = 1; j < n + 1; j++) {
+          if (X.charAt(i - 1) == Y.charAt(j - 1)) {
+            t[i][j] = 1 + t[i - 1][j - 1];
+          } else {
+            t[i][j] = Math.max(t[i][j - 1], t[i - 1][j]);
+          }
+        }
+      }
+      StringBuilder result = new StringBuilder();
+
+      while (m > 0 && n > 0) {
+        if (X.charAt(m - 1) == Y.charAt(n - 1)) {
+          result.append(X.charAt(m - 1));
+          m--;
+          n--;
+        } else if (t[m - 1][n] > t[m][n - 1]){
+          m--;
+        } else {
+          n--;
+        }
+      }
+
+      System.out.println("Longest Common Subsequence: " + result.reverse());
+    }
+  }
+
   public static void main(String[] args) {
     String X = "AGGTAB";
     String Y = "GXTXAYB";   // output: 4
@@ -77,6 +119,11 @@ public class LongestCommonSubsequence {
     DPSolution dpSolution = new DPSolution();
     result = dpSolution.solve(X,Y);
     System.out.println("DP: " + result);
+
+    PrintLongestCommonSubsequence printLongestCommonSubsequence = new PrintLongestCommonSubsequence();
+    printLongestCommonSubsequence.print(X, Y);
+
+    printLongestCommonSubsequence.print("NITIN", "TANIYA");
 
   }
 }

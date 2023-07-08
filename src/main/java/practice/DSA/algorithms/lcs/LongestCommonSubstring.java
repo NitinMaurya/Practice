@@ -38,7 +38,7 @@ public class LongestCommonSubstring {
     }
   }
 
-  private static class DPSolution {
+  static class DPSolution {
 
     public int solve(String X, String Y) {
       return longestCommonSubstring(X, Y);
