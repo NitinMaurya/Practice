@@ -3,7 +3,7 @@ package practice.DSA.algorithms.lcs;
 // Solution passed on GFG
 // Time Complexity: O(m*n).
 // Auxiliary Space: O(m*n)
-public class MinDeletionToMakePalindrome {
+public class MinInsertionToMakePalindrome {
 
   private static final String DESCRIPTION = """   
             

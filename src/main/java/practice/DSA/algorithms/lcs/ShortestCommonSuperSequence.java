@@ -20,11 +20,79 @@ public class ShortestCommonSuperSequence {
       """;
 
   static class Solution {
+
+
     public int solve(String X, String Y) {
       return (X.length() + Y.length()) - longestCommonSubsequence(X,Y);
     }
 
-    private int longestCommonSubsequence(String x, String y) {
+
+
+
+    /*
+
+          Given two strings str1 and str2, return the shortest string that has both str1 and str2 as subsequences. If there are multiple valid strings, return any of them.
+
+          A string s is a subsequence of string t if deleting some number of characters from t (possibly 0) results in the string s.
+
+
+
+          Example 1:
+
+          Input: str1 = "abac", str2 = "cab"
+          Output: "cabac"
+          Explanation:
+          str1 = "abac" is a subsequence of "cabac" because we can delete the first "c".
+          str2 = "cab" is a subsequence of "cabac" because we can delete the last "ac".
+          The answer provided is the shortest such string that satisfies these properties.
+
+          // Solution passed on Leetcode
+          // Time Complexity: O(m*n).
+          // Auxiliary Space: O(m*n)
+          // link: https://leetcode.com/problems/shortest-common-supersequence/description/
+
+     */
+    public String print(String X, String Y) {
+      int[][] t = longestCommonSubsequenceBuild(X, Y);
+      int i = X.length();
+      int j = Y.length();
+
+      StringBuilder result = new StringBuilder();
+       while (i > 0 && j > 0) {
+         if (X.charAt(i - 1) == Y.charAt(j - 1)) {
+           result.append(X.charAt(i - 1));
+           i--;
+           j--;
+         } else {
+           if (t[i - 1][j] > t[i][j - 1]) {
+             result.append(X.charAt(i - 1));
+             i--;
+           } else {
+             result.append(Y.charAt(j - 1));
+             j--;
+           }
+         }
+       }
+
+       while(i > 0) {
+         result.append(X.charAt(i - 1));
+         i--;
+       }
+
+       while (j > 0) {
+         result.append(Y.charAt(j - 1));
+         j--;
+       }
+
+       return result.reverse().toString();
+    }
+
+    private int longestCommonSubsequence(String X, String Y) {
+      int[][] t = longestCommonSubsequenceBuild(X, Y);
+      return t[X.length()][Y.length()];
+    }
+
+    private int[][] longestCommonSubsequenceBuild(String x, String y) {
       int[][] t = new int[x.length() + 1][y.length() + 1];
 
       for (int i = 0; i < x.length() + 1; i++) {
@@ -45,7 +113,7 @@ public class ShortestCommonSuperSequence {
         }
       }
 
-      return t[x.length()][y.length()];
+      return t;
     }
 
   }
@@ -56,6 +124,11 @@ public class ShortestCommonSuperSequence {
     String X = "abcd";
     String Y = "xycd";
 
-    System.out.printf("Length of Shortest Common SuperSequence between X=%s Y=%s:  %d%n", X , Y, solution.solve(X , Y));
+    System.out.printf("Length of Shortest Common SuperSequence between X=%s Y=%s:  %d Result: %s%n", X , Y, solution.solve(X , Y), solution.print(X , Y));
+
+    X = "AGGTAB";
+    Y = "GXTXAYB";
+
+    System.out.printf("Length of Shortest Common SuperSequence between X=%s Y=%s:  %d Result: %s%n", X , Y, solution.solve(X , Y), solution.print(X , Y));
   }
 }
