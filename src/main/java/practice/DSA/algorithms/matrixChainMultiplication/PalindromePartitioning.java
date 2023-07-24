@@ -5,6 +5,9 @@ import java.util.Arrays;
 public class PalindromePartitioning {
 
   private static final String DESCRIPTION = """
+     
+      link: https://practice.geeksforgeeks.org/problems/palindromic-patitioning4845/1?utm_source=geeksforgeeks&utm_medium=article_practice_tab&utm_campaign=article_practice_tab
+      
       Palindrome Partitioning
       
       Given a string, a partitioning of the string is a palindrome partitioning if every substring of the partition is a palindrome.
