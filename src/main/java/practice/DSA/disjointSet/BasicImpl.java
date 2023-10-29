@@ -11,8 +11,8 @@ public class BasicImpl extends DisjointSet {
 	}
 
 	@Override
-	public boolean find(int a, int b) {
-		return arr[a] == arr[b];
+	public boolean find(int child, int root) {
+		return arr[child] == arr[root];
 	}
 
 	@Override

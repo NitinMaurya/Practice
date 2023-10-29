@@ -22,7 +22,7 @@ public abstract class DisjointSet {
 		}
 	}
 
-	abstract boolean find(int a, int b);
+	abstract boolean find(int child, int root);
 
-	abstract void union(int a, int b);
+	abstract void union(int child, int root);
 }
